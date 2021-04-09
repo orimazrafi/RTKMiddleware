@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { fecthBooks } from "./features/Books/Books"
+import { fetchAPI } from "./features/Authors/Authors"
 function App() {
+  const { loader, books } = useSelector(state => state?.Books)
+  const dispatch = useDispatch()
+  const handleBooks = () => {
+    dispatch(fecthBooks(1000))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loader && 'loading'}
+      {JSON.stringify(books, null, 20)}
+      <button onClick={handleBooks}>fetch books</button>
+      <button onClick={() => dispatch(fetchAPI({ trottel: true, time: 10 }))}>fetch Comments</button>
     </div>
   );
 }
