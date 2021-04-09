@@ -1,38 +1,123 @@
-.App {
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6,
+body,
+p {
+  margin: 0;
+}
+
+body {
+  font-family: var(--bs-font-sans-serif)
+}
+
+.app--wrapper {
+  background-image: linear-gradient(180deg, #eee, #fff 100px, #fff);
+  padding: 16px 12px;
+}
+
+nav {
+  padding: 10px 0;
+  display: flex;
+  border-bottom: 1px solid #dee2e6;
+  width: 98%;
+  margin: auto;
+}
+
+nav>div {
+  display: flex;
+}
+
+nav>div.left--section>h4 {
+  font-size: 1.4rem;
+  padding-top: 3px;
+  margin-left: 5px;
+}
+
+nav>div.right--section {
+  margin-left: auto;
+  padding-top: 10px;
+}
+
+nav>div.right--section>p {
+  margin: 0 5px;
+}
+
+header>h1 {
+  margin: 40px 0 10px 0;
+  font-size: 3rem;
+}
+
+header>h4 {
+  max-width: max(50%, 33rem);
+  text-align: center;
+  margin: auto;
+}
+
+
+.box {
+  border: 1px solid;
+}
+
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.auto {
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.box--container {
+  margin-top: 30px;
+  justify-content: space-evenly;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.box>header {
+  background: gray;
+  border-bottom: 1px solid;
+  padding: 7px
+}
+
+.box .body {
+  padding: 10px;
+}
+
+.box>footer {
+  padding-bottom: 10px;
+}
+
+footer>button {
+  background: white;
+  border: 1px solid blue;
+  border-radius: 6px;
+  box-shadow: unset;
+  padding: 4px 20px;
+}
+
+table {
+  width: min(50%, 400px);
+}
+
+
+@media screen and (max-width: 38rem) {
+  nav>div.right--section {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .box--container {
+    gap: 20px;
+    flex-direction: column;
   }
 }
